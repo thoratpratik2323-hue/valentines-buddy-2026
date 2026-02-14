@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style_v2.css?v=1">
+    <link rel="stylesheet" href="style_v2.css?v=6">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -255,34 +255,36 @@
             <button class="back-btn" onclick="goHome()">Back to Buddy</button>
         </div>
 
-    </div>
 
-    <div id="love-calc" class="content-section hidden">
-        <h2 style="font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: #ff4081; margin-bottom: 20px;">
-            True Love ♾️ Verify</h2>
-        <div
-            style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; max-width: 400px; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-            <div style="margin-bottom: 20px;">
-                <label style="display:block; text-align:left; margin-left: 10%; font-size: 0.9rem;">Your Name:</label>
-                <input type="text" id="your-name" placeholder="Name 1" value="Pratik"
-                    style="width: 80%; padding: 10px; margin: 5px 0; border-radius: 20px; border: none; text-align: center; background: rgba(255,255,255,0.8); color: #333;">
+
+        <div id="love-calc" class="content-section hidden">
+            <h2 style="font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: #ff4081; margin-bottom: 20px;">
+                True Love ♾️ Verify</h2>
+            <div
+                style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; max-width: 400px; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                <div style="margin-bottom: 20px;">
+                    <label style="display:block; text-align:left; margin-left: 10%; font-size: 0.9rem;">Your
+                        Name:</label>
+                    <input type="text" id="your-name" placeholder="Name 1" value="Pratik"
+                        style="width: 80%; padding: 10px; margin: 5px 0; border-radius: 20px; border: none; text-align: center; background: rgba(255,255,255,0.8); color: #333;">
+                </div>
+                <div style="font-size: 2rem; margin: 5px;">➕</div>
+                <div style="margin-bottom: 20px;">
+                    <label style="display:block; text-align:left; margin-left: 10%; font-size: 0.9rem;">Her
+                        Name:</label>
+                    <input type="text" id="partner-name" placeholder="Name 2"
+                        style="width: 80%; padding: 10px; margin: 5px 0; border-radius: 20px; border: none; text-align: center; color: #333;">
+                </div>
+                <button onclick="calculateLove()"
+                    style="margin-top: 5px; padding: 10px 30px; background: #ff4081; color: white; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; transition: transform 0.2s; font-size: 1.1rem;">
+                    Calculate Love %
+                </button>
+                <div id="calc-result"
+                    style="margin-top: 20px; font-size: 1.5rem; font-weight: bold; min-height: 50px; text-shadow: 0 0 10px rgba(255,64,129,0.8);">
+                </div>
             </div>
-            <div style="font-size: 2rem; margin: 5px;">➕</div>
-            <div style="margin-bottom: 20px;">
-                <label style="display:block; text-align:left; margin-left: 10%; font-size: 0.9rem;">Her Name:</label>
-                <input type="text" id="partner-name" placeholder="Name 2"
-                    style="width: 80%; padding: 10px; margin: 5px 0; border-radius: 20px; border: none; text-align: center; color: #333;">
-            </div>
-            <button onclick="calculateLove()"
-                style="margin-top: 5px; padding: 10px 30px; background: #ff4081; color: white; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; transition: transform 0.2s; font-size: 1.1rem;">
-                Calculate Love %
-            </button>
-            <div id="calc-result"
-                style="margin-top: 20px; font-size: 1.5rem; font-weight: bold; min-height: 50px; text-shadow: 0 0 10px rgba(255,64,129,0.8);">
-            </div>
+            <button class="back-btn" onclick="goHome()">Back to Buddy</button>
         </div>
-        <button class="back-btn" onclick="goHome()">Back to Buddy</button>
-    </div>
 
     </div>
 
@@ -294,7 +296,8 @@
 
     <!-- Audio Player (Removed) -->
 
-    <script src="script_v2.js?v=1"></script>
+    <script src="script_v2.js?v=6"></script>
 </body>
+
 
 </html>
