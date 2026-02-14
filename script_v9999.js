@@ -248,8 +248,9 @@ function showFinalResult(div) {
 }
 
 // Baby Name Generator Logic
-const boyNames = ["Aarav", "Vivaan", "Aditya", "Vihaan", "Arjun", "Sai", "Reyansh", "Ayaan", "Krishna", "Ishaan", "Shaurya", "Atharva"];
-const girlNames = ["Aadhya", "Diya", "Saanvi", "Ananya", "Kiara", "Pari", "Myra", "Riya", "Anvi", "Aarohi", "Prisha", "Ira"];
+// Blended Baby Names (Pratik + Ishika)
+const boyNames = ["Ishvik", "Pratish", "Prahik", "Ishitik", "Prash", "Ishik"];
+const girlNames = ["Pratika", "Ipshita", "Ishpra", "Prashika", "Ishitik", "Ishvi"];
 
 function generateBabyName(gender) {
     const resultDiv = document.getElementById('baby-result');
