@@ -50,13 +50,7 @@ function setGreeting() {
 // Call on load
 setGreeting();
 
-// Initialize Audio on First Interaction (to respect autoplay policies)
-document.body.addEventListener('click', function () {
-    const audio = document.getElementById('bg-music');
-    if (audio.paused) {
-        audio.play().catch(err => console.log("Audio play failed: ", err));
-    }
-}, { once: true });
+// Audio initialization removed
 
 // Navigation Functions
 function showSection(sectionId) {
@@ -93,11 +87,7 @@ function goHome() {
     // Reset Buddy
     updateBuddy("Welcome back, my love! What's next? 💕");
 
-    // Resume BG music if it was paused by the video logic
-    const bgMusic = document.getElementById('bg-music');
-    if (bgMusic && bgMusic.paused) {
-        bgMusic.play().catch(e => console.log("Bg music interaction needed"));
-    }
+    // Resume BG music check removed
 }
 
 // Interaction Functions
@@ -195,20 +185,5 @@ function createConfettiPiece(color) {
     }, animationDuration * 1000);
 }
 
-// Video & Audio Interaction
+// Video Interaction (no bg music sync)
 const spVideo = document.getElementById('special-video');
-const bgMusic = document.getElementById('bg-music');
-
-if (spVideo && bgMusic) {
-    spVideo.addEventListener('play', () => {
-        bgMusic.pause();
-    });
-
-    spVideo.addEventListener('pause', () => {
-        // Optional: resume if you want, or let user resume manually via goHome which handles it
-    });
-
-    spVideo.addEventListener('ended', () => {
-        bgMusic.play().catch(e => console.log("Bg resume failed"));
-    });
-}
