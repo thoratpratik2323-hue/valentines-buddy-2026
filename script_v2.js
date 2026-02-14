@@ -212,3 +212,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Love Calculator Logic
+function calculateLove() {
+    const p1 = document.getElementById('your-name').value;
+    const p2 = document.getElementById('partner-name').value;
+    const resultDiv = document.getElementById('calc-result');
+
+    if (!p1 || !p2) {
+        alert("Please enter both names!");
+        return;
+    }
+
+    // Fake Calculation Effect
+    let percentage = 0;
+    resultDiv.innerHTML = "Calculating... 💓";
+    resultDiv.style.color = "#fff";
+
+    const interval = setInterval(() => {
+        percentage += Math.floor(Math.random() * 10);
+        if (percentage > 100) percentage = 100;
+        resultDiv.innerHTML = percentage + "%";
+
+        if (percentage >= 100) {
+            clearInterval(interval);
+            showFinalResult(resultDiv);
+        }
+    }, 100);
+}
+
+function showFinalResult(div) {
+    div.innerHTML = "100% ❤️ <br> <span style='font-size:1rem'>Match Made in Heaven!</span>";
+    div.style.color = "#ffd700";
+    confettiExplosion();
+    updateBuddy("I knew it! You two are perfect! 💑");
+}
