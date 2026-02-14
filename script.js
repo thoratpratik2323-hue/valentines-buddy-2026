@@ -133,15 +133,15 @@ function openGift(giftName) {
     // Assuming they are in sibling directories
     let url = '';
     switch (giftName) {
-        case 'hug': url = '../hug_day_gift/index.html'; break;
-        case 'kiss': url = '../kiss_day_gift/index.html'; break;
-        case 'promise': url = '../promise_day_gift/index.html'; break;
-        case 'teddy': url = '../teddy_day_gift/index.html'; break;
-        case 'proposal': url = '../propose_day_lanterns/index.html'; break;
-        case 'valentine': url = '../valentines_day_gift/index.html'; break;
-        case 'infinity': url = '../infinity_kiss/index.html'; break;
-        case 'proposal2': url = '../wife_proposal_2/index.html'; break;
-        case 'video_page': url = '../video-page/index.html'; break;
+        case 'hug': url = 'hug_day_gift/index.html'; break;
+        case 'kiss': url = 'kiss_day_gift/index.html'; break;
+        case 'promise': url = 'promise_day_gift/index.html'; break;
+        case 'teddy': url = 'teddy_day_gift/index.html'; break;
+        case 'proposal': url = 'propose_day_lanterns/index.html'; break;
+        case 'valentine': url = 'valentines_day_gift/index.html'; break;
+        case 'infinity': url = 'infinity_kiss/index.html'; break;
+        case 'proposal2': url = 'wife_proposal_2/index.html'; break;
+        case 'video_page': url = 'video-page/index.html'; break;
         default: url = '#';
     }
 

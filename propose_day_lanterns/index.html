@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magical Proposal ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="night-sky">
+        <canvas id="lanternCanvas"></canvas>
+    </div>
+
+    <div class="content-wrapper">
+        <div id="instruction" class="instruction fade-in">
+            <p>Tap the light to make a wish... ✨</p>
+            <div class="lantern-trigger" onclick="releaseLanterns()">
+                <i class="fa-solid fa-lightbulb fa-bounce"></i>
+            </div>
+        </div>
+
+        <div id="proposal-content" class="proposal-content hidden">
+            <h1 class="main-question">Will You Be Mine Forever? 💍</h1>
+            <p class="sub-text">From this day until my last...</p>
+
+            <div class="buttons">
+                <button class="btn yes-btn" onclick="acceptProposal()">YES, I Will! 💖</button>
+                <button class="btn no-btn" onmouseover="dodgeNo(this)" onclick="dodgeNo(this)">No 🙈</button>
+            </div>
+        </div>
+
+        <div id="final-message" class="hidden">
+            <h1>I Love You, Ishu! ❤️</h1>
+            <p>You are my dream come true.</p>
+        </div>
+    </div>
+
+    <!-- Music (Optional) -->
+    <audio id="bg-music" loop>
+        <!-- Place a romantic track like 'Tangled - I See The Light' here -->
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
