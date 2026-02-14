@@ -187,3 +187,28 @@ function createConfettiPiece(color) {
 
 // Video Interaction (no bg music sync)
 const spVideo = document.getElementById('special-video');
+
+// Image Modal Functions
+const modal = document.getElementById('image-modal');
+const modalImg = document.getElementById('modal-img');
+
+function openModal(src) {
+    modal.classList.add('show');
+    modalImg.src = src;
+}
+
+function closeModal() {
+    modal.classList.remove('show');
+}
+
+// Attach listeners to gallery images once loaded
+document.addEventListener('DOMContentLoaded', () => {
+    const galleryImages = document.querySelectorAll('.gallery-item img');
+    galleryImages.forEach(img => {
+        img.addEventListener('click', () => {
+            openModal(img.src);
+        });
+        img.style.cursor = 'pointer'; // Make it obvious clickable
+    });
+});
+
