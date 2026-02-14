@@ -4,18 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baby Button Added! 👶</title>
+    <title>A Question for My Queen ❤️</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style_v10000.css">
+    <link rel="stylesheet" href="style_v10001.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
+    <div class="flash-layer" id="flash-effect"></div>
     <div class="background-animation"></div>
 
 
@@ -325,6 +326,32 @@
 
     </div>
 
+    <!-- Love Contract Modal -->
+    <div id="contract-modal" class="modal hidden" onclick="closeContract()">
+        <div class="contract-container" onclick="event.stopPropagation()">
+            <div class="contract-inner">
+                <h1
+                    style="font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: #ff4081; margin-bottom: 20px;">
+                    Certificate of Love</h1>
+                <p style="font-size: 1.1rem; color: #333; margin-bottom: 10px;">This is to certify that from this day
+                    forward,</p>
+                <h2 style="font-family: 'Great Vibes', cursive; font-size: 3rem; color: #1a1a2e; margin: 20px 0;">Ishika
+                    Pratik Thorat</h2>
+                <p style="font-size: 1rem; color: #333; line-height: 1.6;">
+                    Has officially accepted the addition of her partner's name. They are now bound by love, laughter,
+                    and an infinite amount of code. ♾️❤️
+                </p>
+                <div
+                    style="margin-top: 30px; display: flex; justify-content: space-around; font-family: 'Great Vibes', cursive; font-size: 1.5rem; color: #ff4081;">
+                    <div>Signed: Poku</div>
+                    <div>Signed: Ishu</div>
+                </div>
+                <button onclick="closeContract()" class="back-btn"
+                    style="margin-top: 30px; border-color: #ff4081; color: #ff4081;">Close & Forever ❤️</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Image Modal -->
     <div id="image-modal" class="modal hidden" onclick="closeModal()">
         <span class="close-modal">&times;</span>
@@ -333,7 +360,7 @@
 
     <!-- Audio Player (Removed) -->
 
-    <script src="script_v10000.js"></script>
+    <script src="script_v10001.js"></script>
 </body>
 
 
