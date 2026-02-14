@@ -249,7 +249,8 @@ function showFinalResult(div) {
 
 // Name Proposal Logic
 let proposalPlayer;
-function onYouTubeIframeAPIReady() {
+window.onYouTubeIframeAPIReady = function () {
+    console.log("YouTube API Ready - Initializing Kesariya Player");
     proposalPlayer = new YT.Player('proposal-song-player', {
         height: '0',
         width: '0',
@@ -259,6 +260,10 @@ function onYouTubeIframeAPIReady() {
             'controls': 0,
             'modestbranding': 1,
             'rel': 0
+        },
+        events: {
+            'onReady': () => console.log("Player Ready"),
+            'onError': (e) => console.log("Player Error", e)
         }
     });
 }
