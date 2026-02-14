@@ -131,7 +131,7 @@ function openGift(giftName) {
         case 'valentine': url = 'valentines_day_gift/index.html'; break;
         case 'infinity': url = 'infinity_kiss/index.html'; break;
         case 'proposal2': url = 'wife_proposal_2/index.html'; break;
-        case 'video_page': url = 'video-page/index.html'; break;
+        case 'wife_proposal': url = 'wife_proposal/index.html'; break;
         default: url = '#';
     }
 
