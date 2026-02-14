@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Poku ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Dancing+Script:wght@700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!-- The Safe Element -->
+        <div class="safe-container" id="safe">
+            <div class="safe-body">
+                <div class="safe-door">
+                    <div class="lock-mechanism">
+                        <div class="screen">
+                            <span class="status-text">LOCKED</span>
+                            <div class="question-text" id="question-display">Loading Question...</div>
+                        </div>
+                        <div class="input-area">
+                            <input type="text" id="password-input" placeholder="Type the secret answer..."
+                                autocomplete="off">
+                            <button id="unlock-btn">UNLOCK 🔓</button>
+                        </div>
+                        <div class="dial">
+                            <div class="dial-inner"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Content hidden inside -->
+                <div class="safe-content">
+                    <div class="hug-message">
+                        <h1>🤗 BIGGEST HUG EVER! 🤗</h1>
+                        <p>For my dearest Ishu ❤️</p>
+                        <div class="heart-animation" id="speak-heart" title="Click me!">❤️</div>
+                        <p class="click-hint">(Click the heart!)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hidden Elements triggered on Unlock -->
+        <div class="overlay-content hidden" id="overlay-content">
+            <!-- 1. Hug Coupons Carousel -->
+            <div class="coupons-container">
+                <h2>🎟️ Your Lifetime Hug Coupons</h2>
+                <div class="coupon-grid">
+                    <div class="coupon">
+                        <span class="emoji">🐻</span>
+                        <h3>Bear Hug</h3>
+                        <p>Valid for: Anytime you need strength.</p>
+                    </div>
+                    <div class="coupon">
+                        <span class="emoji">💆‍♀️</span>
+                        <h3>Head Massage & Hug</h3>
+                        <p>Valid for: When you are tired.</p>
+                    </div>
+                    <div class="coupon">
+                        <span class="emoji">🔋</span>
+                        <h3>Recharge Hug</h3>
+                        <p>Valid for: 5 minutes of silence together.</p>
+                    </div>
+                    <div class="coupon">
+                        <span class="emoji">😘</span>
+                        <h3>Forehead Kiss</h3>
+                        <p>Valid for: To remind you I'm here.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Floating Memories (Make sure you add p1.jpg, p2.jpg, p3.jpg, p4.jpg to the folder!) -->
+            <div class="floating-photos">
+                <img src="p1.jpg" class="photo p1" alt="Memory 1">
+                <img src="p2.jpg" class="photo p2" alt="Memory 2">
+                <img src="p3.jpg" class="photo p3" alt="Memory 3">
+                <img src="p4.jpg" class="photo p4" alt="Memory 4">
+            </div>
+
+            <!-- 2. Hidden Love Notes (Envelopes) -->
+            <div class="floating-envelopes">
+                <div class="envelope e1" onclick="openNote('You are my safe place 🏠')">💌</div>
+                <div class="envelope e2" onclick="openNote('Tightest hug loading... please wait ⏳')">💌</div>
+                <div class="envelope e3" onclick="openNote('Can\'t imagine life without you 💖')">💌</div>
+                <div class="envelope e4" onclick="openNote('Sending you a thousand kisses 😘')">💌</div>
+            </div>
+
+            <!-- Note Popup Modal -->
+            <div id="note-modal" class="modal hidden">
+                <div class="modal-content">
+                    <span class="close-modal" onclick="closeNote()">&times;</span>
+                    <p id="note-text"></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 2. Background Music (Updated to downloaded webm file) -->
+    <audio id="bg-music" loop>
+        <source src="song.webm" type="audio/webm">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Celebration effects -->
+    <canvas id="canvas"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

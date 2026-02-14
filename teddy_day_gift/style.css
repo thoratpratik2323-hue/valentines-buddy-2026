@@ -1,0 +1,593 @@
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #fce4ec, #f8bbd0, #f48fb1);
+    font-family: 'Quicksand', sans-serif;
+    overflow: hidden;
+    position: relative;
+    user-select: none;
+}
+
+/* OVERLAY Styles (NEW) */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 64, 129, 0.95);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    transition: opacity 1s ease-out;
+}
+
+#overlay.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.overlay-content h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
+
+#enterBtn {
+    padding: 15px 40px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 50px;
+    background: white;
+    color: #e91e63;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+    font-family: 'Quicksand', sans-serif;
+}
+
+#enterBtn:hover {
+    transform: scale(1.1);
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.hidden-content {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+.hidden-content.visible {
+    opacity: 1;
+}
+
+
+.container {
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.title {
+    font-family: 'Pacifico', cursive;
+    color: #c2185b;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    animation-delay: 1s;
+    /* Delay title until after overlay fades */
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+.instruction {
+    font-size: 1.2rem;
+    color: #880e4f;
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeIn 2s 2s forwards;
+    /* Delay instruction even more */
+}
+
+/* Teddy Bear CSS Art */
+.teddy-container {
+    position: relative;
+    width: 220px;
+    height: 280px;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.teddy-container:hover {
+    transform: scale(1.05);
+}
+
+.teddy {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* PARTS */
+
+/* Head */
+.head {
+    width: 130px;
+    height: 110px;
+    background-color: #d7ccc8;
+    /* Beige/Light Brown */
+    border-radius: 60px 60px 50px 50px;
+    position: absolute;
+    top: 20px;
+    left: 45px;
+    z-index: 6;
+    box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ear {
+    width: 45px;
+    height: 45px;
+    background-color: #d7ccc8;
+    background-image: radial-gradient(circle at center, #ffcdd2 40%, transparent 41%);
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    z-index: 1;
+}
+
+.ear.left {
+    left: 40px;
+}
+
+.ear.right {
+    right: 40px;
+}
+
+/* Face features (inside head) */
+.eye {
+    width: 14px;
+    height: 14px;
+    background-color: #3e2723;
+    border-radius: 50%;
+    position: absolute;
+    top: 40px;
+    z-index: 7;
+    animation: blink 4s infinite;
+}
+
+.eye.left {
+    left: 35px;
+}
+
+.eye.right {
+    right: 35px;
+}
+
+@keyframes blink {
+
+    0%,
+    96%,
+    100% {
+        height: 14px;
+        transform: scaleY(1);
+    }
+
+    98% {
+        height: 2px;
+        transform: scaleY(0.1);
+    }
+}
+
+.muzzle {
+    width: 46px;
+    height: 34px;
+    background-color: #ffe0b2;
+    border-radius: 20px;
+    position: absolute;
+    top: 55px;
+    left: 42px;
+    /* centered in 130px head */
+    z-index: 7;
+}
+
+.nose {
+    width: 14px;
+    height: 9px;
+    background-color: #3e2723;
+    border-radius: 50%;
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
+
+.smile {
+    width: 18px;
+    height: 10px;
+    border-bottom: 3px solid #3e2723;
+    border-radius: 0 0 10px 10px;
+    position: absolute;
+    top: 18px;
+    left: 14px;
+}
+
+.blush {
+    width: 18px;
+    height: 10px;
+    background-color: #ef9a9a;
+    border-radius: 50%;
+    position: absolute;
+    top: 65px;
+    opacity: 0.6;
+    z-index: 7;
+}
+
+.blush.left {
+    left: 25px;
+}
+
+.blush.right {
+    right: 25px;
+}
+
+/* Body */
+.body {
+    width: 110px;
+    height: 130px;
+    background-color: #d7ccc8;
+    border-radius: 50px 50px 45px 45px;
+    position: absolute;
+    top: 110px;
+    /* Overlaps head slightly */
+    left: 55px;
+    z-index: 4;
+    box-shadow: inset -5px -5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Arms */
+.arm {
+    width: 45px;
+    height: 75px;
+    background-color: #d7ccc8;
+    border-radius: 25px;
+    position: absolute;
+    top: 120px;
+    /* Shoulder height */
+    z-index: 5;
+    /* In front of body for hugging look */
+    transform-origin: top center;
+}
+
+/* Waving / Hugging */
+.arm.left {
+    left: 30px;
+    transform: rotate(30deg);
+    animation: waveLeft 3s infinite ease-in-out;
+}
+
+.arm.right {
+    right: 30px;
+    transform: rotate(-30deg);
+    animation: waveRight 3s infinite ease-in-out;
+}
+
+@keyframes waveLeft {
+
+    0%,
+    100% {
+        transform: rotate(30deg);
+    }
+
+    50% {
+        transform: rotate(45deg);
+    }
+}
+
+@keyframes waveRight {
+
+    0%,
+    100% {
+        transform: rotate(-30deg);
+    }
+
+    50% {
+        transform: rotate(-45deg);
+    }
+}
+
+
+/* Legs */
+.leg {
+    width: 45px;
+    height: 65px;
+    background-color: #d7ccc8;
+    border-radius: 25px;
+    position: absolute;
+    top: 210px;
+    /* Sticking out beneath body */
+    z-index: 3;
+    /* Behind body slightly? Or in front sitting? let's do behind */
+}
+
+.leg.left {
+    left: 60px;
+    transform: rotate(15deg);
+}
+
+.leg.right {
+    right: 60px;
+    transform: rotate(-15deg);
+}
+
+/* Heart */
+.heart {
+    position: absolute;
+    top: 140px;
+    left: 85px;
+    /* Center approx */
+    font-size: 45px;
+    z-index: 8;
+    animation: heartbeat 1.5s infinite;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+.shadow {
+    width: 140px;
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    position: absolute;
+    bottom: 10px;
+    left: 40px;
+    z-index: 0;
+}
+
+
+/* Hidden Message Card */
+.message-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 80%;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 20;
+    border: 3px solid #f8bbd0;
+}
+
+.message-card.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: auto;
+}
+
+.message-text {
+    font-size: 1.5rem;
+    color: #4a148c;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    min-height: 1.5em;
+    /* Prevent Layout Shift */
+}
+
+.highlight {
+    display: block;
+    color: #d81b60;
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-top: 10px;
+    min-height: 2em;
+    /* Prevent Layout Shift */
+}
+
+.message-sub {
+    font-size: 1rem;
+    color: #6a1b9a;
+    margin-top: 15px;
+    font-style: italic;
+    opacity: 0;
+    /* Hidden initially for typing effect sequence */
+    transition: opacity 1s;
+}
+
+.message-sub.show-sub {
+    opacity: 1;
+}
+
+.close-btn {
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: linear-gradient(to right, #ec407a, #d81b60);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+}
+
+.close-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(233, 30, 99, 0.6);
+}
+
+/* Particle Hearts */
+.floating-heart {
+    position: fixed;
+    /* Fixed so they float relative to viewport */
+    font-size: 20px;
+    color: #e91e63;
+    pointer-events: none;
+    animation: floatUp 4s linear forwards;
+    opacity: 0.8;
+    z-index: 100;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-120vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Music Button */
+.music-control {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.floating-btn {
+    padding: 10px 20px;
+    background: #e91e63;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(233, 30, 99, 0.4);
+    transition: all 0.3s;
+}
+
+.floating-btn:hover {
+    transform: scale(1.1);
+    background: #d81b60;
+}
+
+.floating-btn.playing {
+    background: #4caf50;
+    box-shadow: 0 0 15px #81c784;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px #81c784;
+    }
+
+    to {
+        box-shadow: 0 0 20px #a5d6a7;
+    }
+}
+
+/* Reasons Container */
+.reasons-container {
+    margin-top: 30px;
+    text-align: center;
+    position: relative;
+    z-index: 20;
+    transition: opacity 1s;
+}
+
+.reasons-container.hidden {
+    display: none;
+    opacity: 0;
+}
+
+.reason-btn {
+    padding: 12px 25px;
+    background: white;
+    color: #c2185b;
+    border: 2px solid #c2185b;
+    border-radius: 25px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.reason-btn:hover {
+    background: #fce4ec;
+    transform: translateY(-2px);
+}
+
+.reason-text {
+    margin-top: 20px;
+    font-size: 1.4rem;
+    color: #880e4f;
+    font-family: 'Pacifico', cursive;
+    min-height: 50px;
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Typing Cursor */
+.typing-cursor::after {
+    content: '|';
+    animation: blinkCursor 0.7s infinite;
+}
+
+@keyframes blinkCursor {
+    50% {
+        opacity: 0;
+    }
+}

@@ -1,0 +1,6 @@
+/* Basic Style for 2nd Layout */
+/* Kept empty as most logic is in the HTML file for single-file portability, 
+   but creating this to prevent 404s if I reference it later. */
+body {
+    margin: 0;
+}

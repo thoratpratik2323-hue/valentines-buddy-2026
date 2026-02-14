@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Teddy Day, Ishu!</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Overlay for "Click to Enter" to ensure Audio Autoplay -->
+    <div id="overlay">
+        <div class="overlay-content">
+            <h1>🎁 A Special Gift for You! 🎁</h1>
+            <p>Tap to Open</p>
+            <button id="enterBtn">Click Here ❤️</button>
+        </div>
+    </div>
+
+    <!-- Main Content (Hidden initially) -->
+    <div class="container hidden-content" id="mainContainer">
+        <h1 class="title">Happy Teddy Day, Ishu! 🧸</h1>
+
+        <div class="teddy-container" id="teddyContainer">
+            <div class="teddy">
+                <div class="ear left"></div>
+                <div class="ear right"></div>
+
+                <div class="arm left"></div>
+                <div class="arm right"></div>
+
+                <div class="leg left"></div>
+                <div class="leg right"></div>
+
+                <div class="body"></div>
+
+                <div class="heart">
+                    <div class="heart-pulse">❤️</div>
+                </div>
+
+                <div class="head">
+                    <div class="eye left"></div>
+                    <div class="eye right"></div>
+                    <div class="muzzle">
+                        <div class="nose"></div>
+                        <div class="smile"></div>
+                    </div>
+                    <div class="blush left"></div>
+                    <div class="blush right"></div>
+                </div>
+            </div>
+            <div class="shadow"></div>
+        </div>
+
+        <div class="message-card hidden" id="messageCard">
+            <p class="message-text">Usually bears are soft and cuddly...</p>
+            <p class="message-text highlight">But my heart is softest for you!</p>
+            <p class="message-sub">Sending you the biggest, warmest bear hug today & always.</p>
+            <button class="close-btn" id="closeBtn">Hugs back! 🤗</button>
+        </div>
+
+        <p class="instruction" id="instruction">Tap the bear for a surprise!</p>
+
+        <!-- Music Controls -->
+        <div class="music-control">
+            <button id="musicBtn" class="floating-btn">🎵 Play Music</button>
+            <audio id="bgMusic" loop autoplay>
+                <source src="song.webm" type="audio/webm">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- Reasons I Love You Section -->
+        <div class="reasons-container hidden" id="reasonsContainer">
+            <button class="reason-btn" id="reasonBtn">Click for a Reason I Love You 💖</button>
+            <p class="reason-text" id="reasonText"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

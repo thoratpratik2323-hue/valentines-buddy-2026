@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Promsie to Ishu ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="video-bg">
+        <!-- Using a loopable romantic video background -->
+        <video autoplay muted loop id="myVideo">
+            <source src="bg_promise.mp4" type="video/mp4">
+        </video>
+        <div class="overlay"></div>
+    </div>
+
+    <!-- START SCREEN -->
+    <div id="start-screen">
+        <h1 class="glow-text">Happy Promise Day Baby</h1>
+        <p class="subtitle">I have 7 Promises for you...</p>
+        <button class="btn-start" onclick="startPromises()">Let's Begin ❤️</button>
+    </div>
+
+    <!-- PROMISE CARDS -->
+    <div id="promise-container" class="hidden">
+        <div class="card-stack">
+            <!-- Promises will be injected by JS -->
+        </div>
+        <p class="hint">Tap card to reveal next promise ✨</p>
+    </div>
+
+    <!-- FINAL SCREEN -->
+    <div id="final-screen" class="hidden">
+        <h1>For Eternity & Beyond</h1>
+        <div class="signature">
+            <svg width="300" height="100">
+                <path id="sig-path" d="M10,80 Q50,10 90,80 T180,80 T280,80" stroke="white" fill="transparent"
+                    stroke-width="3" />
+                <text x="50" y="60" fill="white" font-family="'Dancing Script', cursive" font-size="40">Yours, Pratik
+                    ❤️</text>
+            </svg>
+        </div>
+        <p>"I promise to love you even on your bad days."</p>
+        <button class="btn-start" onclick="location.reload()">Replay 🔄</button>
+    </div>
+
+    <audio id="bgm" src="promise_song.mp3" loop></audio>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

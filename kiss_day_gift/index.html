@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Kiss for My Love 😘</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Stars Background -->
+    <div id="hearts-bg"></div>
+
+    <!-- MAIN CONTAINER -->
+    <div class="container">
+
+        <!-- STAGE 1: ENVELOPE -->
+        <div id="envelope-stage">
+            <h1 class="bounce">For Ishu ❤️</h1>
+            <div class="envelope" onclick="openKiss()">
+                <div class="flap"></div>
+                <div class="seal">💋</div>
+                <div class="card">
+                    <p>Open for a<br>Surprise!</p>
+                </div>
+            </div>
+            <p class="hint">(Tap the kiss seal)</p>
+        </div>
+
+        <!-- STAGE 2: FLYING KISS (Initially Hidden) -->
+        <div id="kiss-stage" class="hidden">
+            <div class="flying-emoji">😘</div>
+            <h2>Catch It!</h2>
+        </div>
+
+        <!-- STAGE 3: BIG SMOOCH (Initially Hidden) -->
+        <div id="final-stage" class="hidden">
+            <div class="big-lips" onclick="showerKisses()">💋</div>
+            <h1 class="message">Happy Kiss Day My Love! Muah! 😘</h1>
+            <p class="love-note">
+                "One kiss on the forehead is worth a thousand on the lips...<br>
+                But I'm sending you ALL OF THEM today!"
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Kiss Sound (Optional/Fallback) -->
+    <!-- You can add a sound file later if you want -->
+
+    <script src="script.js"></script>
+</body>
+
+</html>

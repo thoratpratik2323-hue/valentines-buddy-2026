@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Universe</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;500&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Stars Background */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration) infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.2;
+                transform: scale(0.8);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        /* Title */
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            text-shadow: 0 0 20px #fff, 0 0 40px #ff00de;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeIn 2s forwards 1s;
+        }
+
+        /* Gallery Grid */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 90%;
+            max-width: 1200px;
+            perspective: 1000px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            /* Rounded corners */
+            overflow: hidden;
+            /* Clip image */
+            transition: transform 0.5s, box-shadow 0.5s;
+            cursor: pointer;
+            opacity: 0;
+            /* Hidden initially */
+            transform: translateY(50px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 0 30px rgba(255, 0, 222, 0.5);
+            z-index: 10;
+        }
+
+        .card img,
+        .card video {
+            width: 100%;
+            height: 300px;
+            /* Fixed height for uniformity */
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Message Overlay */
+        .message-box {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 1.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            width: 90%;
+            max-width: 600px;
+            z-index: 100;
+        }
+
+        /* Play Button (Initial) */
+        #playData {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            flex-direction: column;
+        }
+
+        .moon-btn {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #fdfcdc;
+            box-shadow: 0 0 50px #fdfcdc;
+            border: none;
+            cursor: pointer;
+            animation: pulse 3s infinite;
+            font-size: 2rem;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 20px #fdfcdc;
+            }
+
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 0 60px #fdfcdc;
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 20px #fdfcdc;
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Shooting Star */
+        .shooting-star {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            height: 2px;
+            background: linear-gradient(-45deg, rgba(95, 145, 255, 1), rgba(0, 0, 255, 0));
+            border-radius: 999px;
+            filter: drop-shadow(0 0 6px rgba(105, 155, 255, 1));
+            animation: tail 3000ms ease-in-out infinite, shooting 3000ms ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes tail {
+            0% {
+                width: 0;
+            }
+
+            30% {
+                width: 100px;
+            }
+
+            100% {
+                width: 0;
+            }
+        }
+
+        @keyframes shooting {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(300px);
+            }
+        }
+
+        /* Floating Text */
+        .float-text {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.5);
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            animation: floatText 15s infinite linear;
+            pointer-events: none;
+            z-index: 0;
+            text-shadow: 0 0 5px #fff;
+        }
+
+        @keyframes floatText {
+            0% {
+                transform: translateY(110vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.8;
+            }
+
+            80% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(-10vh) rotate(10deg);
+                opacity: 0;
+            }
+        }
+
+        /* Refined Card Styles for 3D Effect */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            /* Lighter glass */
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            /* Smooth spring */
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(50px) rotateX(10deg);
+            /* Start slightly tilted */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0) rotateX(0);
+        }
+
+        .card:hover {
+            transform: scale(1.05) rotateY(5deg) translateY(-10px);
+            /* 3D Lift */
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.2), 0 0 15px rgba(255, 215, 0, 0.4);
+            /* Golden Glow */
+            border-color: rgba(255, 215, 0, 0.5);
+            z-index: 100;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Stars Background -->
+    <div class="stars" id="star-container"></div>
+
+    <!-- Intro Overlay -->
+    <div id="playData">
+        <button class="moon-btn" onclick="startJourney()">🌙</button>
+        <p style="margin-top:20px; color:#aaa; font-size:0.9rem;">Touch the Moon</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>To My Moon & Stars...</h1>
+
+        <div class="gallery" id="gallery">
+            <!-- Items injected via JS -->
+        </div>
+    </div>
+
+    <div class="message-box" id="msgBtn">
+        Playing: Raataan Lambiyan 🎵 <br>
+        <span style="color: #ff69b4; font-size: 1.5rem; font-weight: bold;">I Love You My Januu Muhaa 😘</span>
+    </div>
+
+    <!-- YouTube Music -->
+    <div id="yt-player"></div>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        // Assets from Transfer
+        const mediaAssets = [
+            'assets/photo_2026-02-11_21-27-27.jpg',
+            'assets/photo_2026-02-11_21-27-31.jpg',
+            'assets/video_2026-02-11_21-27-34.mp4',
+            'assets/photo_2026-02-11_21-27-38.jpg',
+            'assets/photo_2026-02-11_21-28-07.jpg',
+            'assets/photo_2026-02-11_21-28-10.jpg',
+            'assets/photo_2026-02-11_21-28-13.jpg',
+            'assets/photo_2026-02-11_21-28-17.jpg',
+            'assets/photo_2026-02-11_21-28-19.jpg'
+        ];
+
+        // Stars Logic
+        const starContainer = document.getElementById('star-container');
+        for (let i = 0; i < 150; i++) { // More stars
+            const star = document.createElement('div');
+            star.className = 'star';
+            const size = Math.random() * 2 + 'px'; // Slightly smaller stars
+            star.style.width = size;
+            star.style.height = size;
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.setProperty('--duration', (Math.random() * 3 + 2) + 's');
+            starContainer.appendChild(star);
+        }
+
+        // Shooting Stars
+        setInterval(() => {
+            const shootingStar = document.createElement('div');
+            shootingStar.className = 'shooting-star';
+            shootingStar.style.left = Math.random() * 100 + '%';
+            shootingStar.style.top = Math.random() * 80 + '%';
+            // Random angle/direction slightly
+            shootingStar.style.transform = `rotate(${Math.random() * 45}deg)`;
+            document.body.appendChild(shootingStar);
+            setTimeout(() => shootingStar.remove(), 3000);
+        }, 4000);
+
+        // Floating Love Words
+        const loveWords = ["My Universe", "Forever", "My Moon", "Only You", "Soulmate", "Destiny", "❤️", "✨"];
+        setInterval(() => {
+            const word = document.createElement('div');
+            word.className = 'float-text';
+            word.innerText = loveWords[Math.floor(Math.random() * loveWords.length)];
+            word.style.left = Math.random() * 90 + 5 + '%';
+            word.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+            word.style.animationDuration = (Math.random() * 5 + 10) + 's'; // 10-15s float time
+            document.body.appendChild(word);
+            setTimeout(() => word.remove(), 15000);
+        }, 2000);
+
+        // YouTube Audio
+        let player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('yt-player', {
+                height: '0', width: '0',
+                videoId: 'gvyUuxdRdR4', // Raataan Lambiyan (Lyrical)
+                playerVars: { 'autoplay': 0, 'loop': 1, 'controls': 0, 'start': 10 }
+            });
+        }
+
+        // Start Journey
+        function startJourney() {
+            document.getElementById('playData').style.transition = 'opacity 1s';
+            document.getElementById('playData').style.opacity = '0';
+            setTimeout(() => document.getElementById('playData').remove(), 1000);
+
+            // Play Music
+            if (player && player.playVideo) player.playVideo();
+
+            // Load Gallery with Delay
+            const gallery = document.getElementById('gallery');
+
+            mediaAssets.forEach((src, index) => {
+                const card = document.createElement('div');
+                card.className = 'card';
+
+                if (src.endsWith('.mp4')) {
+                    const vid = document.createElement('video');
+                    vid.src = src;
+                    vid.controls = false; // Hide controls so it looks like a moving photo
+                    vid.autoplay = true;
+                    vid.muted = true; // Required for mobile autoplay
+                    vid.loop = true; // Always loop
+                    vid.playsInline = true; // For iOS
+                    card.appendChild(vid);
+
+                    // Force play
+                    vid.play().catch(e => console.log("Auoplay blocked", e));
+                } else {
+                    const img = document.createElement('img');
+                    img.src = src;
+                    card.appendChild(img);
+                }
+
+                gallery.appendChild(card);
+
+                // Staggered Animation
+                setTimeout(() => {
+                    card.classList.add('visible');
+                }, index * 300 + 500); // 300ms delay between each
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,521 @@
+/* --- FIX: Safe & Clean Transition --- */
+:root {
+    --safe-color: #2c3e50;
+    --safe-shadow: #1a252f;
+    --door-color: #34495e;
+    --accent-gold: #f1c40f;
+    --screen-bg: #000;
+    --screen-text: #2ecc71;
+    --bg-gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-gradient);
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    color: white;
+}
+
+.container {
+    perspective: 1000px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* --- THE SAFE --- */
+.safe-container {
+    width: 320px;
+    height: 400px;
+    position: relative;
+    z-index: 50;
+    transition: all 0.8s ease-in-out;
+}
+
+/* FIX: FADE OUT SAFE COMPLETELY instead of moving up awkwardy */
+.safe-container.fade-out {
+    opacity: 0;
+    transform: scale(1.2);
+    pointer-events: none;
+}
+
+.safe-body {
+    width: 100%;
+    height: 100%;
+    background: var(--safe-color);
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.safe-content {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    background: #fff0f5;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    color: #d63384;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s ease 1s;
+}
+
+.hug-message h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+}
+
+.hug-message p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.heart-animation {
+    font-size: 5rem;
+    animation: heartbeat 1.5s infinite;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.3);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.15);
+    }
+
+    60% {
+        transform: scale(1);
+    }
+}
+
+.safe-door {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    background: var(--door-color);
+    border-radius: 15px;
+    border: 4px solid #465f75;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    transform-origin: left center;
+    transition: transform 1.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.safe-door.open {
+    transform: rotateY(-110deg);
+}
+
+/* SCREEN & INPUTS */
+.screen {
+    background: var(--screen-bg);
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid #555;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.status-text {
+    display: block;
+    color: #e74c3c;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.status-text.unlocked {
+    color: var(--screen-text);
+}
+
+.question-text {
+    color: var(--screen-text);
+    font-family: monospace;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.input-area {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    background: #223;
+    border: 1px solid #445;
+    color: white;
+    text-align: center;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    outline: none;
+}
+
+button {
+    padding: 12px;
+    background: var(--accent-gold);
+    border: none;
+    color: #2c3e50;
+    font-weight: 800;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #c0392b;
+}
+
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #c0392b;
+}
+
+.dial {
+    width: 80px;
+    height: 80px;
+    background: #bdc3c7;
+    border-radius: 50%;
+    border: 4px solid #7f8c8d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.dial-inner {
+    width: 60%;
+    height: 10%;
+    background: #7f8c8d;
+    transform: rotate(45deg);
+}
+
+.shake {
+    animation: shake 0.5s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+@keyframes shake {
+
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+/* --- OVERLAY CONTENT (CENTERED) --- */
+.overlay-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 1s ease 1s;
+    /* Fade in after safe fades out */
+}
+
+.overlay-content.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.coupons-container {
+    text-align: center;
+    z-index: 20;
+    margin-top: -50px;
+    /* Slight adjust for visual center */
+}
+
+.coupons-container h2 {
+    font-family: 'Dancing Script', cursive;
+    color: #f1c40f;
+    margin-bottom: 30px;
+    font-size: 3rem;
+    text-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
+}
+
+.coupon-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.coupon {
+    background: white;
+    color: #333;
+    padding: 20px;
+    border-radius: 15px;
+    width: 160px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 3px dashed #ff6b6b;
+    transition: transform 0.3s;
+}
+
+.coupon:hover {
+    transform: scale(1.1) rotate(2deg);
+}
+
+.coupon .emoji {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.coupon h3 {
+    color: #d63384;
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.coupon p {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* FIX: Better Photo Positioning */
+.floating-photos img {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 5px solid white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.overlay-content.visible .floating-photos img {
+    opacity: 0.9;
+}
+
+/* Place them in corners nicely */
+.p1 {
+    top: 10%;
+    left: 10%;
+    transform: rotate(-10deg);
+}
+
+.p2 {
+    top: 10%;
+    right: 10%;
+    transform: rotate(10deg);
+}
+
+.p3 {
+    bottom: 10%;
+    left: 10%;
+    transform: rotate(5deg);
+}
+
+.p4 {
+    bottom: 10%;
+    right: 10%;
+    transform: rotate(-5deg);
+}
+
+/* Envelopes */
+.floating-envelopes .envelope {
+    position: absolute;
+    font-size: 3.5rem;
+    cursor: pointer;
+    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.3));
+    animation: float 6s ease-in-out infinite;
+    z-index: 15;
+}
+
+.e1 {
+    top: 50%;
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.e2 {
+    top: 50%;
+    right: 15%;
+    animation-delay: 1.5s;
+}
+
+.e3 {
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 0.5s;
+}
+
+.e4 {
+    bottom: 15%;
+    right: 40%;
+    animation-delay: 2s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* --- FIX: Modal Hidden Logic --- */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 200;
+    display: flex;
+    /* Kept flex for alignment */
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    /* Use visibility for cleaner hide */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Only show when explicit class added */
+.modal.show-modal {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    border: 5px double #e74c3c;
+    box-shadow: 0 0 30px rgba(231, 76, 60, 0.6);
+    transform: scale(0.8);
+    transition: transform 0.3s;
+}
+
+.modal.show-modal .modal-content {
+    transform: scale(1);
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: #e74c3c;
+}
+
+#note-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: #333;
+}
+
+#canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* HIDE Utility (Overpowering) */
+.hidden {
+    display: none !important;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .coupons-container h2 {
+        font-size: 2rem;
+    }
+
+    .coupon {
+        width: 130px;
+        padding: 10px;
+    }
+
+    .floating-photos img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .floating-envelopes .envelope {
+        font-size: 2.5rem;
+    }
+
+    .e1 {
+        left: 5%;
+    }
+
+    .e2 {
+        right: 5%;
+    }
+}
