@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Queen's Valentine Buddy ❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="background-animation"></div>
+
+    <div class="container">
+        <!-- The 'Buddy' Character Area -->
+        <div class="buddy-container">
+            <div class="buddy-avatar">
+                <i class="fa-solid fa-robot fa-bounce"></i> <!-- Placeholder for 3D Art -->
+            </div>
+            <div class="chat-bubble" id="buddy-message">
+                Hello, My Queen! <br> I am your personal Love Assistant. How can I spoil you today? ✨
+            </div>
+        </div>
+
+        <!-- Interactive Menu Grid -->
+        <div class="menu-grid">
+            <button class="menu-item" onclick="showSection('gift-vault')">
+                <i class="fa-solid fa-gift"></i>
+                <span>Open Gift Vault</span>
+            </button>
+            <button class="menu-item" onclick="triggerCompliment()">
+                <i class="fa-solid fa-heart"></i>
+                <span>Tell Me A Secret</span>
+            </button>
+            <button class="menu-item" onclick="showSection('our-journey')">
+                <i class="fa-solid fa-route"></i>
+                <span>Our Journey</span>
+            </button>
+            <button class="menu-item highlight" onclick="triggerGrandSurprise()">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <span>Surprise Me!</span>
+            </button>
+            <button class="menu-item" onclick="showSection('love-letter')">
+                <i class="fa-solid fa-envelope-open-text"></i>
+                <span>A Letter For You</span>
+            </button>
+            <button class="menu-item" onclick="showSection('pokus-pics')">
+                <i class="fa-solid fa-camera-retro"></i>
+                <span>Pokus Pics 📸</span>
+            </button>
+            <button class="menu-item" onclick="showSection('special-note')"
+                style="grid-column: span 2; background: linear-gradient(135deg, #7b1fa2, #e1bee7);">
+                <i class="fa-solid fa-note-sticky"></i>
+                <span>A Special Note For You 💌</span>
+            </button>
+        </div>
+
+        <!-- Content Sections (Hidden by Default) -->
+        <div id="gift-vault" class="content-section hidden">
+            <h2>Your Treasure Trove</h2>
+            <div class="gift-list">
+                <div class="gift-card" onclick="openGift('teddy')">
+                    <i class="fa-solid fa-paw"></i>
+                    <span>Teddy Day Gift</span>
+                </div>
+                <div class="gift-card" onclick="openGift('proposal')">
+                    <i class="fa-solid fa-ring"></i>
+                    <span>Propose Day Gift</span>
+                </div>
+                <div class="gift-card" onclick="openGift('hug')">
+                    <i class="fa-solid fa-hands-holding-circle"></i>
+                    <span>Hug Day Gift</span>
+                </div>
+                <div class="gift-card" onclick="openGift('kiss')">
+                    <i class="fa-solid fa-kiss-wink-heart"></i>
+                    <span>Kiss Day Gift</span>
+                </div>
+                <div class="gift-card" onclick="openGift('promise')">
+                    <i class="fa-solid fa-handshake-simple"></i>
+                    <span>Promise Day Gift</span>
+                </div>
+                <div class="gift-card" onclick="openGift('valentine')">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    <span>Valentine's Day Special</span>
+                </div>
+                <div class="gift-card" onclick="openGift('infinity')">
+                    <i class="fa-solid fa-infinity"></i>
+                    <span>Infinity Kiss (Bonus)</span>
+                </div>
+
+                <h3 style="margin-top: 20px; color: #ffd700; font-family: 'Great Vibes', cursive;">Extra Memories &
+                    Edits</h3>
+
+                <div class="gift-card" onclick="openGift('proposal2')">
+                    <i class="fa-solid fa-stars"></i>
+                    <span>Starry Night Proposal (V2) 🌌</span>
+                </div>
+                <div class="gift-card" onclick="openGift('video_page')">
+                    <i class="fa-solid fa-film"></i>
+                    <span>Special Video Page 🎬</span>
+                </div>
+            </div>
+            <button class="back-btn" onclick="goHome()">Back to Buddy</button>
+        </div>
+
+        <div id="our-journey" class="content-section hidden">
+            <h2>Our Beautiful Story</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="date">The Beginning</div>
+                    <div class="desc">Where our eyes first met...</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="date">First Date</div>
+                    <div class="desc">Magic was in the air...</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="date">Today</div>
+                    <div class="desc">Still falling for you every single day.</div>
+                </div>
+            </div>
+            <button class="back-btn" onclick="goHome()">Back to Buddy</button>
+        </div>
+
+        <div id="love-letter" class="content-section hidden">
+            <h2 style="font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: #ff80ab; margin-bottom: 20px;">My
+                Dearest Heart,</h2>
+            <div class="letter-content"
+                style="text-align: left; padding: 20px; font-family: 'Poppins', sans-serif; font-size: 1.1rem; line-height: 1.8; background: rgba(255,255,255,0.05); border-radius: 15px; max-height: 400px; overflow-y: auto;">
+                <p>Every day with you feels like a dream I never want to wake up from. When I look at you, I see my
+                    future, my happiness, and my home.</p>
+                <p>You make the ordinary moments extraordinary just by being there. Your laughter is my favorite song,
+                    and your happiness is my life's mission.</p>
+                <p>Thank you for being my rock, my safe place, and my greatest adventure. I love you more than words can
+                    ever say.</p>
+                <br>
+                <p style="font-family: 'Great Vibes', cursive; font-size: 2rem; text-align: right;">Forever
+                    Yours,<br>Your King 👑</p>
+            </div>
+            <button class="back-btn" onclick="goHome()">Back to Buddy</button>
+        </div>
+
+        <div id="pokus-pics" class="content-section hidden">
+            <h2 style="font-family: 'Great Vibes', cursive; font-size: 2.5rem; margin-bottom: 20px;">Pokus Gallery 📸
+            </h2>
+            <div class="gallery-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; padding: 10px;">
+                <div class="gallery-item"
+                    style="height: 150px; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                    <img src="../valentines_day_gift/p1.jpg" alt="Our Memory 1"
+                        style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                </div>
+                <div class="gallery-item"
+                    style="height: 150px; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                    <img src="../valentines_day_gift/p2.jpg" alt="Our Memory 2"
+                        style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                </div>
+                <div class="gallery-item"
+                    style="height: 150px; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                    <img src="../valentines_day_gift/p3.jpg" alt="Our Memory 3"
+                        style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                </div>
+                <div class="gallery-item"
+                    style="height: 150px; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                    <img src="../valentines_day_gift/p4.jpg" alt="Our Memory 4"
+                        style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                </div>
+            </div>
+            <p style="margin-top: 15px; font-size: 0.9rem; color: #ccc;">(Copy your photos to an 'images' folder and add
+                them here!)</p>
+            <button class="back-btn" onclick="goHome()">Back to Buddy</button>
+        </div>
+
+        <div id="special-note" class="content-section hidden">
+            <h2 style="font-family: 'Great Vibes', cursive; font-size: 2.5rem; margin-bottom: 20px; color: #ff80ab;">A
+                Special Note For You 💌</h2>
+            <div class="video-container"
+                style="width: 100%; max-width: 100%; aspect-ratio: 9/16; background: black; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); margin: 0 auto;">
+                <video id="special-video" controls style="width: 100%; height: 100%; object-fit: contain;">
+                    <source src="special_note.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <p style="margin-top: 15px; font-size: 1.1rem; color: #ffd700; font-style: italic;">"Just a little something
+                to remind you how much you mean to me..."</p>
+            <button class="back-btn" onclick="goHome()">Back to Buddy</button>
+        </div>
+
+    </div>
+
+    <!-- Audio Player (Hidden) -->
+    <audio id="bg-music" loop>
+        <source src="../valentines_day_gift/song.webm" type="audio/webm">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
