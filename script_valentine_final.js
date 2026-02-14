@@ -269,8 +269,8 @@ window.onYouTubeIframeAPIReady = function () {
 }
 
 function acceptNameProposal() {
-    const middleName = document.getElementById('middle-name-display');
-    const lastName = document.getElementById('last-name-display');
+    const middleName = document.getElementById('prop-middle');
+    const lastName = document.getElementById('prop-last');
     const resultDiv = document.getElementById('proposal-result');
 
     // Play Song!
@@ -281,10 +281,14 @@ function acceptNameProposal() {
     // Trigger Flash Effect
     triggerFlash();
 
-    // Reveal names
+    // Reveal names with style!
     middleName.style.opacity = 1;
-    middleName.style.color = "#ff4081"; // Highlight middle name in pink
+    middleName.style.color = "#ff4081"; // Magical Pink
+    middleName.style.transform = "scale(1.2)";
+
     lastName.style.opacity = 1;
+    lastName.style.color = "#ff4081";
+    lastName.style.transform = "scale(1.1)";
 
     // Show result message
     resultDiv.innerHTML = "Ishika Pratik Thorat <br> <span style='font-size:1rem; color:#fff'>FOREVER! ❤️</span>";
@@ -296,11 +300,11 @@ function acceptNameProposal() {
 
     updateBuddy("YAY! She said YES! Best Day Ever! 💍✨");
 
-    // Show Contract after 2 seconds
+    // Show Contract after 2.5 seconds (slightly longer to enjoy the name)
     setTimeout(() => {
         document.getElementById('contract-modal').classList.remove('hidden');
         document.getElementById('contract-modal').classList.add('show');
-    }, 2000);
+    }, 2500);
 }
 
 function closeContract() {

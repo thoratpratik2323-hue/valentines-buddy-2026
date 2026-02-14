@@ -374,6 +374,7 @@ h2 {
     }
 }
 
-.flash-active {
-    animation: cameraFlash 0.5s ease-out forwards;
+#full-proposal-name span {
+    display: inline-block;
+    margin: 0 5px;
 }

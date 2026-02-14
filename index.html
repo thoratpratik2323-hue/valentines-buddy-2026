@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style_valentine_final.css?v=fresh_777">
+    <link rel="stylesheet" href="style_valentine_final.css?v=prop_fix_v2">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -293,13 +293,14 @@
         </div>
 
         <div id="name-proposal" class="content-section hidden">
-            <h2 style="font-family: 'Great Vibes', cursive; font-size: 2.2rem; color: #00b0ff; margin-bottom: 20px;">
-                Will you be my... 💍 <br>
-                <span id="wife-name-display" style="font-size: 2.5rem; color: #fff; transition: all 1s;">Ishika</span>
-                <span id="middle-name-display"
-                    style="font-size: 2.5rem; color: #ffd700; opacity: 0; transition: all 1s;">Pratik</span>
-                <span id="last-name-display"
-                    style="font-size: 2.5rem; color: #fff; opacity: 0; transition: all 1s;">Thorat</span>
+            <h2 id="full-proposal-name"
+                style="font-family: 'Great Vibes', cursive; line-height: 1.4; color: #fff; margin-bottom: 20px; transition: all 1s ease;">
+                <span style="font-size: 2rem; color: #00b0ff; display: block; margin-bottom: 10px;">Will you be my...
+                    💍</span>
+                <span style="font-size: 3rem;">Ishika</span>
+                <span id="prop-middle"
+                    style="font-size: 3rem; color: #ffd700; opacity: 0.3; transition: all 1s;">Pratik</span>
+                <span id="prop-last" style="font-size: 3rem; opacity: 0.3; transition: all 1s;">Thorat</span>
             </h2>
 
             <div
@@ -364,7 +365,7 @@
     <div id="proposal-song-player" style="display:none;"></div>
 
     <!-- Load our script FIRST so onYouTubeIframeAPIReady is defined -->
-    <script src="script_valentine_final.js?v=final_final_777"></script>
+    <script src="script_valentine_final.js?v=prop_fix_v2"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 
