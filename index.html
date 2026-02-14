@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style_v9999.css">
+    <link rel="stylesheet" href="style_v10000.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -57,10 +57,10 @@
                 <i class="fa-solid fa-camera-retro"></i>
                 <span>Pokus Pics 📸</span>
             </button>
-            <button class="menu-item" onclick="showSection('baby-gen')"
+            <button class="menu-item" onclick="showSection('name-proposal')"
                 style="grid-column: span 2; background: linear-gradient(135deg, #00b0ff, #0091ea);">
-                <i class="fa-solid fa-baby-carriage"></i>
-                <span>Our Future Baby 👶</span>
+                <i class="fa-solid fa-ring"></i>
+                <span>A Special Question 💍</span>
             </button>
             <button class="menu-item" onclick="showSection('love-calc')"
                 style="grid-column: span 2; background: linear-gradient(135deg, #ff4081, #f50057);">
@@ -291,29 +291,33 @@
             <button class="back-btn" onclick="goHome()">Back to Buddy</button>
         </div>
 
-        <div id="baby-gen" class="content-section hidden">
-            <h2
-                style="font-family: 'Great Vibes', cursive; font-size: 2rem; color: #00b0ff; margin-bottom: 20px; line-height: 1.3;">
-                Pratik Balasaheb Thorat <br>&<br> Ishika Pratik Thorat's <br> <span
-                    style="font-size: 1.5rem; color: #fff;">Future Baby Names 👶</span></h2>
+        <div id="name-proposal" class="content-section hidden">
+            <h2 style="font-family: 'Great Vibes', cursive; font-size: 2.2rem; color: #00b0ff; margin-bottom: 20px;">
+                Will you be my... 💍 <br>
+                <span id="wife-name-display" style="font-size: 2.5rem; color: #fff; transition: all 1s;">Ishika</span>
+                <span id="middle-name-display"
+                    style="font-size: 2.5rem; color: #ffd700; opacity: 0; transition: all 1s;">Pratik</span>
+                <span id="last-name-display"
+                    style="font-size: 2.5rem; color: #fff; opacity: 0; transition: all 1s;">Thorat</span>
+            </h2>
 
             <div
-                style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; max-width: 400px; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-                <p style="margin-bottom: 20px;">What will our little one be called?</p>
-                <div style="display: flex; gap: 10px; justify-content: center; margin-bottom: 20px;">
-                    <button onclick="generateBabyName('boy')"
-                        style="padding: 10px 20px; background: #2196f3; color: white; border: none; border-radius: 25px; cursor: pointer; flex: 1;">
-                        💙 Boy
+                style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; max-width: 500px; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                <p style="font-size: 1.2rem; margin-bottom: 25px; line-height: 1.6;">
+                    My Queen, will you do me the honor of adding my name between your name and surname? ❤️<br>
+                    <span style="font-size: 0.9rem; color: #ccc;">(Making us officially inseparable!)</span>
+                </p>
+
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                    <button onclick="acceptNameProposal()"
+                        style="padding: 15px 30px; background: #e91e63; color: white; border: none; border-radius: 30px; font-weight: bold; font-size: 1.1rem; cursor: pointer; box-shadow: 0 5px 15px rgba(233,30,99,0.4); transition: transform 0.2s;">
+                        YES! Make it Ishika Pratik Thorat! 💍
                     </button>
-                    <button onclick="generateBabyName('girl')"
-                        style="padding: 10px 20px; background: #e91e63; color: white; border: none; border-radius: 25px; cursor: pointer; flex: 1;">
-                        💖 Girl
-                    </button>
+                    <!-- No 'No' button because obviously! -->
                 </div>
 
-                <div id="baby-result"
-                    style="min-height: 60px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: bold; background: rgba(0,0,0,0.2); border-radius: 10px; padding: 10px;">
-                    Click a button! ✨
+                <div id="proposal-result"
+                    style="margin-top: 20px; font-size: 1.3rem; font-weight: bold; color: #ffd700; min-height: 30px;">
                 </div>
             </div>
             <button class="back-btn" onclick="goHome()">Back to Buddy</button>
@@ -329,7 +333,7 @@
 
     <!-- Audio Player (Removed) -->
 
-    <script src="script_v9999.js"></script>
+    <script src="script_v10000.js"></script>
 </body>
 
 
