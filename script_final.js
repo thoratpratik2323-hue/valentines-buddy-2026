@@ -246,3 +246,31 @@ function showFinalResult(div) {
     confettiExplosion();
     updateBuddy("I knew it! You two are perfect! 💑");
 }
+
+// Baby Name Generator Logic
+const boyNames = ["Aarav", "Vivaan", "Aditya", "Vihaan", "Arjun", "Sai", "Reyansh", "Ayaan", "Krishna", "Ishaan", "Shaurya", "Atharva"];
+const girlNames = ["Aadhya", "Diya", "Saanvi", "Ananya", "Kiara", "Pari", "Myra", "Riya", "Anvi", "Aarohi", "Prisha", "Ira"];
+
+function generateBabyName(gender) {
+    const resultDiv = document.getElementById('baby-result');
+    let name = "";
+
+    if (gender === 'boy') {
+        const randomName = boyNames[Math.floor(Math.random() * boyNames.length)];
+        name = `${randomName} Pratik Thorat`;
+        updateBuddy("A handsome prince! 👑");
+    } else {
+        const randomName = girlNames[Math.floor(Math.random() * girlNames.length)];
+        name = `${randomName} Pratik Thorat`;
+        updateBuddy("A beautiful princess! 👑");
+    }
+
+    // Animation effect
+    resultDiv.style.opacity = 0;
+    setTimeout(() => {
+        resultDiv.innerHTML = name;
+        resultDiv.style.opacity = 1;
+        resultDiv.style.color = gender === 'boy' ? '#90caf9' : '#f48fb1';
+        confettiExplosion();
+    }, 200);
+}
